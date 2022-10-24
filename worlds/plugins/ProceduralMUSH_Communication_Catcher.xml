@@ -14,7 +14,7 @@
    save_state="y"
    date_written="2022-10-20 23:28:32"
    requires="5.06"
-   version="6.40"
+   version="6.41"
    >
   
 </plugin>
@@ -705,9 +705,8 @@ print("Date Format: ", date_format)
     omit_from_output="n"
     sequence="100"
     send_to="12"
-    ><send>util.print("@x238[@x202MO@x208TE @x214OB@x220TA@x228IN@X220ED!@x238] @GMote of %1")
+    ><send>util.print("@x238[@x202MO@x208TE @x214OB@x220TA@x228IN@x220ED!@x238] @GMote of %1")
     local text = "@x238[@x202MO@x208TE @x214OB@x220TA@x228IN@x220ED!@x238] @GMote of %1"
-    DoAfter(0.2, "use mote")
     SendToCommLog(text)
     </send></trigger>
     <trigger
@@ -845,7 +844,7 @@ print("Date Format: ", date_format)
 <![CDATA[
 
 require "utility"
-version = "6.40"
+version = "6.41"
 ----------------------------------------------------------------------------------------------------------
 --- VARIABLES GO HERE 
 ----------------------------------------------------------------------------------------------------------
