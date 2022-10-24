@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- Saved on Monday, June 17, 2019, 8:08 PM -->
+<!-- MuClient version 5.06-pre -->
+
+
+<muclient>
+<plugin
+   name="Test_Window"
+   author="Asmodeus"
+   id="ca81c6d49fc8651517f995ab"
+   language="Lua"
+   purpose="BareBonesWindow"
+   save_state="y"
+   date_written="2019-06-17 20:07:58"
+   requires="5.06"
+   version="1.0"
+   >
+   <description trim="n">
+
+</description>
+</plugin>
+
+
+<aliases>
+
+  <alias regexp="y" match="^test window$" enabled="y" script="toggleWindow" ignore_case="y" sequence="100"></alias>
+  <alias regexp="y" match="^test window reset$" enabled="y" script="ResetWindow" ignore_case="y" sequence="100"></alias>
+</aliases>
+
+<triggers>
+   
+</triggers>
+
+<include name="constants.lua"/>
+
+<script>
+<![CDATA[
+   require "serialize"
+   require "commas"
+
+   -- Window related variables
+   local z_order_plugin = "462b665ecb569efbf261422f"
+	local dragStart = nil	
+	local window = {}	
+
+   -- Variables
+
+
+   function Help()
+		ColourNote("orange", "black", GetPluginInfo (GetPluginID (), 3))
+   end
+   
+   function OnPluginInstall()
+		if (GetVariable("window") ~= nil) then	
+			-- load saved variables if they exist
+			luastmt = "obj = " .. GetVariable("window")
+			assert (loadstring (luastmt or "")) ()		
+			window = obj
+		else
+			SetWindowDefaults() -- load window defaults
+		end					
+		
+
+		InitializeWindow()				
+      Help()
+   end
+
+   function OnPluginClose()
+		DeleteWindow()
+   end
+
+
+
+      	-- window functions
+	function Draw(win)
+		-- miniwin background and outline
+		WindowRectOp(win.id, miniwin.rect_fill , 0, 0, win.width, win.height, ColourNameToRGB(window.backgroundColor))	
+		WindowRectOp(win.id, miniwin.rect_3d_rect , 0, 0, win.width, win.height, ColourNameToRGB(window.borderColor), ColourNameToRGB(window.borderColor))				
+		
+		-- resize bars
+		WindowLine(win.id, win.width-3,  win.height-2, win.width-2, win.height-3, ColourNameToRGB(window.borderColor), 0, 2)
+		WindowLine(win.id, win.width-4,  win.height-2, win.width-2, win.height-4, ColourNameToRGB(window.backgroundColor), 0, 1)
+		WindowLine(win.id, win.width-6,  win.height-2, win.width-2, win.height-6, ColourNameToRGB(window.borderColor), 0, 2)
+		WindowLine(win.id, win.width-7,  win.height-2, win.width-2, win.height-7, ColourNameToRGB(window.backgroundColor), 0, 1)
+		WindowLine(win.id, win.width-9,  win.height-2, win.width-2, win.height-9, ColourNameToRGB(window.borderColor), 0, 2)
+		WindowLine(win.id, win.width-10, win.height-2, win.width-2, win.height-10, ColourNameToRGB(window.backgroundColor), 0, 1)
+		WindowLine(win.id, win.width-12, win.height-2, win.width-2, win.height-12, ColourNameToRGB(window.borderColor), 0, 2)
+		WindowLine(win.id, win.width-13, win.height-2, win.width-2, win.height-13, ColourNameToRGB(window.backgroundColor), 0, 1)
+		
+      -- Where the magic happens. Draw all the things!
+      local line = 0
+      local total = 0
+end
+   
+
+	function InitializeWindow()
+		WindowCreate(window.id, window.left, window.top, window.width, window.height, miniwin.pos_center_all, miniwin.create_keep_hotspots, ColourNameToRGB(window.backgroundColor))
+		WindowFont(window.id, window.font, window.fontFamily, window.fontSize, false, false, false, false, 1, 0)
+		WindowPosition(window.id, window.left, window.top, miniwin.pos_stretch_to_view, miniwin.create_absolute_location)	
+
+		CreateHotSpots()
+		
+		if (window.show) then
+			WindowShow(window.id, window.show)				
+			if (IsPluginInstalled(z_order_plugin) and GetPluginInfo(z_order_plugin, 17)) then
+				CallPlugin(z_order_plugin, "boostMe", window.id)
+			end
+			Draw(window)
+		end	
+	end
+	
+	function DeleteWindow()
+		WindowDelete(window.id)
+   end
+
+   function toggleWindow()
+      if window.show == true then
+         HideWindow()
+         ColourNote("silver", "", "Test mini window has been ", "red", "", "DISABLED")
+      else
+         ShowWindow()
+         ColourNote("silver", "", "Test mini window has been ", "lime", "", "ENABLED")
+      end
+   end
+	
+	function ShowWindow()
+		window.show = true
+		WindowShow(window.id, true)
+		if (IsPluginInstalled(z_order_plugin) and GetPluginInfo(z_order_plugin, 17)) then
+			CallPlugin(z_order_plugin, "boostMe", window.id)
+		end
+		Draw(window)
+		SaveWindow()	
+	end
+	
+	function HideWindow()
+		window.show = false
+		WindowShow(window.id, false)
+		Draw(window)
+		SaveWindow()
+	end	
+	
+	function SaveWindow()
+		SetVariable("window", serialize.save_simple(window))
+	end	
+	
+	function SetWindowDefaults()
+		window = {
+			id = "window_" .. GetPluginID(),
+			top = 10,
+			left = 10,
+			width = 200,
+			height = 50,
+			show = true,
+			font = "defaultFont",
+			fontFamily = "Fixedsys",
+			fontSize = 9,
+			fontColor = "white",
+			borderColor = "lightgray",
+			backgroundColor = "black"
+		}
+	end
+	
+	function ResetWindow()
+		SetWindowDefaults()		
+		SaveWindow()	
+		InitializeWindow()				
+      Draw(window)
+      ColourNote("silver", "", "Test mini window position/etc has been reset.")
+	end
+	
+	function CreateHotSpots()
+		WindowDeleteAllHotspots(window.id)
+	
+		WindowAddHotspot(window.id, "DragArea", 0, 0, window.width-13, window.height-13, 
+			"", "", "", "", "mouseup", "Drag to move", miniwin.cursor_both_arrow, 0)
+		WindowDragHandler(window.id, "DragArea", "dragmove", "dragrelease", 0)	
+
+		WindowAddHotspot(window.id, "DragAreaBottom", 0, window.height-13, window.width-13, window.height, 
+			"", "", "", "", "mouseup", "Drag to move", miniwin.cursor_both_arrow, 0)
+		WindowDragHandler(window.id, "DragAreaBottom", "dragmove", "dragrelease", 0)	
+
+		WindowAddHotspot(window.id, "DragAreaRight", window.width-13, 0, window.width, window.height-13, 
+			"", "", "", "", "mouseup", "Drag to move", miniwin.cursor_both_arrow, 0)
+		WindowDragHandler(window.id, "DragAreaRight", "dragmove", "dragrelease", 0)			
+		
+		WindowAddHotspot(window.id, "Resize", 
+			window.width-13, window.height-13, window.width-2, window.height-2,
+			"", "", "", "", "mouseup", "Drag to resize", miniwin.cursor_nw_se_arrow, 0)
+		WindowDragHandler(window.id, "Resize", "resizemove", "resizerelease", 0) 
+	end
+	
+	-- Handlers
+	function dragmove(flags, hotspot_id)							
+		if (not dragStart) then
+			dragStart = {
+				x = WindowInfo(window.id, 14),
+				y = WindowInfo(window.id, 15),
+			}
+		end		
+		
+		WindowPosition(window.id, 
+						WindowInfo (window.id, 17) - dragStart.x, 
+						WindowInfo (window.id, 18) - dragStart.y, 
+						miniwin.pos_stretch_to_view, 
+						miniwin.create_absolute_location)
+	end
+
+	function dragrelease(flags, hotspot_id)		
+		window.left = WindowInfo(window.id, 10)
+		window.top = WindowInfo(window.id, 11)
+		
+		dragStart = nil
+		
+		SaveWindow()
+	end
+	
+	function resizemove(flags, hotspot_id) 
+		window.width = WindowInfo(window.id, 17) - WindowInfo(window.id, 10)
+		window.height = WindowInfo(window.id, 18) - WindowInfo(window.id, 11)
+		
+		WindowResize(window.id, window.width, window.height, ColourNameToRGB("gray"))
+		WindowShow(window.id, true)
+	end -- dragmove
+
+	function resizerelease(flags, hotspot_id)
+		SaveWindow()
+				
+		CreateHotSpots()
+		
+		Draw(window)
+	end -- dragrelease
+	
+	function mouseup(flags, hotspot_id)		
+		if (bit.band(flags, miniwin.hotspot_got_rh_mouse) ~= 0) then
+			local result = WindowMenu(window.id, 
+				WindowInfo(window.id, 14),
+				WindowInfo(window.id, 15),
+				"Bring to front|Send to back")		
+			
+			if (result ~= "" and IsPluginInstalled(z_order_plugin) and GetPluginInfo(z_order_plugin, 17)) then
+				if (result == "Send to back") then 
+					CallPlugin(z_order_plugin, "dropMe", window.id)
+				else
+					CallPlugin(z_order_plugin, "boostMe", window.id)
+				end
+			end
+		end
+	end
+
+]]>
+</script>
+
+
+</muclient>

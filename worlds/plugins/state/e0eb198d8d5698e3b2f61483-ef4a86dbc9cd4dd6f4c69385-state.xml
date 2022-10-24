@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- MuClient version 5.07-pre -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+
+<!-- Plugin state saved. Plugin: "ProceduralMUSH_Health_Bars". World: "Procedural_Realms". -->
+
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.07-pre"
+   world_file_version="15"
+  >
+  <variable name="enabled">true</variable>
+  <variable name="flat_gauges">0</variable>
+  <variable name="font_name">Fixedsys Excelsior 3.01</variable>
+  <variable name="font_size">12</variable>
+  <variable name="graphicalMode">1</variable>
+  <variable name="mw_ef4a86dbc9cd4dd6f4c69385_windowx">0</variable>
+  <variable name="mw_ef4a86dbc9cd4dd6f4c69385_windowy">663</variable>
+  <variable name="overlay_numbers">1</variable>
+  <variable name="reverseTNL">1</variable>
+  <variable name="showBar">showBar = {}
+  showBar.Health = {}
+    showBar.Health[1] = "Health: "
+    showBar.Health[2] = false
+    showBar.Health[3] = "Health "
+    showBar.Health[4] = 65280
+    showBar.Health[5] = 17408
+  showBar.Hunger = {}
+    showBar.Hunger[1] = "Hunger :"
+    showBar.Hunger[2] = true
+    showBar.Hunger[3] = "Hunger:"
+    showBar.Hunger[4] = 13458026
+    showBar.Hunger[5] = 4473924
+  showBar.Stamina = {}
+    showBar.Stamina[1] = "Stamina:"
+    showBar.Stamina[2] = false
+    showBar.Stamina[3] = "Stamina:"
+    showBar.Stamina[4] = 13828244
+    showBar.Stamina[5] = 17476
+  showBar.Energy = {}
+    showBar.Energy[1] = "Energy :"
+    showBar.Energy[2] = false
+    showBar.Energy[3] = "Energy:"
+    showBar.Energy[4] = 55295
+    showBar.Energy[5] = 4465152</variable>
+  <variable name="showLabels">1</variable>
+  <variable name="stacked">1</variable>
+  <variable name="thresh1active">0</variable>
+  <variable name="thresh1color">65535</variable>
+  <variable name="thresh1percent">40</variable>
+  <variable name="thresh2active">0</variable>
+  <variable name="thresh2color">255</variable>
+  <variable name="thresh2percent">20</variable>
+  <variable name="width">677</variable>
+</variables>
+</muclient>

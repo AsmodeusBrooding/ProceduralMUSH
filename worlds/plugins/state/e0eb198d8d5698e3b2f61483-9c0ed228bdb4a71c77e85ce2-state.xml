@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- MuClient version 5.07-pre -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+
+<!-- Plugin state saved. Plugin: "ProceduralMUSH_ASCII_Map". World: "Procedural_Realms". -->
+
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.07-pre"
+   world_file_version="15"
+  >
+  <variable name="body_font_size">35</variable>
+  <variable name="mw_testwindow2_windowx">679</variable>
+  <variable name="mw_testwindow2_windowy">329</variable>
+  <variable name="themed_miniwindow_heighttestwindow2">365</variable>
+  <variable name="themed_miniwindow_widthtestwindow2">211</variable>
+  <variable name="win_height">196</variable>
+  <variable name="win_width">196</variable>
+</variables>
+</muclient>

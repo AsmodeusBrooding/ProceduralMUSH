@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- MuClient version 5.07-pre -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+
+<!-- Plugin state saved. Plugin: "Miniwindow_Z_Order_Monitor". World: "Procedural_Realms". -->
+
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.07-pre"
+   world_file_version="15"
+  >
+  <variable name="ab555825a4a5700c35fa80780">1</variable>
+  <variable name="ab6eae87ccedd84f510b74714_mapper">2</variable>
+  <variable name="ab6eae87ccedd84f510b74714_z_config_win">3</variable>
+  <variable name="aef4a86dbc9cd4dd6f4c69385">4</variable>
+  <variable name="atestwindow2">6</variable>
+  <variable name="awin_353de94ba6c42060d839e256">5</variable>
+</variables>
+</muclient>

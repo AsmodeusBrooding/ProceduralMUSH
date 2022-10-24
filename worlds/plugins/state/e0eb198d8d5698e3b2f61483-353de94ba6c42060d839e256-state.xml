@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- MuClient version 5.07-pre -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+
+<!-- Plugin state saved. Plugin: "ProceduralMUSH_Group_Window". World: "Procedural_Realms". -->
+
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.07-pre"
+   world_file_version="15"
+  >
+  <variable name="bar_width">172</variable>
+  <variable name="compact_mode">0</variable>
+  <variable name="debug_state">false</variable>
+  <variable name="enemy_hp_color">#00ff00</variable>
+  <variable name="font_name">Fixedsys Excelsior 3.01</variable>
+  <variable name="font_size">12</variable>
+  <variable name="hp_bar_border">#00ff00</variable>
+  <variable name="hp_color">#00ff00</variable>
+  <variable name="mana_color">#3333ff</variable>
+  <variable name="moves_color">gold</variable>
+  <variable name="myname">Vivi</variable>
+  <variable name="overlay_pct">1</variable>
+  <variable name="pos_x">0</variable>
+  <variable name="pos_y">553</variable>
+  <variable name="show_mana">1</variable>
+  <variable name="show_minions">1</variable>
+  <variable name="show_moves">1</variable>
+  <variable name="show_numbers">1</variable>
+  <variable name="thresh1active">0</variable>
+  <variable name="thresh1color">#00ffff</variable>
+  <variable name="thresh1percent">40</variable>
+  <variable name="thresh2active">0</variable>
+  <variable name="thresh2color">#0000ff</variable>
+  <variable name="thresh2percent">20</variable>
+  <variable name="top">98.2</variable>
+  <variable name="win_height">109</variable>
+  <variable name="win_width">676</variable>
+</variables>
+</muclient>

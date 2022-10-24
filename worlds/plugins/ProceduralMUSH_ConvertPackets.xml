@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+
+<muclient>
+<plugin
+   name="CleftMUSH_Convert_Packet"
+   author="Nick Gammon"
+   id="9c0ed228bdb4a71c77e85ce0"
+   language="Lua"
+   purpose="Converts one word to another"
+   date_written="2008-06-29"
+   requires="4.00"
+   version="1.0"
+   >
+
+</plugin>
+
+<!--  Script  -->
+<script>
+function OnPluginPacketReceived (s)
+--s = string.gsub (s, "...%[0;36m(%d+,%s%d).%[0m...%[3n", "WARP ZONE\n[Start_Desc]\nThis is the Warp Zone!\n")
+
+--s = string.gsub (s, "...%[0;36m(%d+,%s%d).%[0m...%[3n", "14, 6\n[Start_Desc]\nYou are in the Warp Zone.\nYou can get to various places from here.\nHave fun!\n")
+s = string.gsub (s, ".%[0m  .%[0m..", "\n  [There is no description written for this room]\n\n")
+s = string.gsub (s, "%.%[92m", "\027\091\048\059\057\050\109") -- weird color shit
+--s = string.gsub (s, "[\010][\013][\027]%[0m[\010][\013]", "\n[End_Desc]\n")
+--s = string.gsub (s, "[\046][\027][\091][\048][\109][\010][\013]", "\n[End_Desc]\n")
+
+--s = string.gsub (s, "[\010][\013][\027]%[0m[\091][\048][\109][\010][/013][\027]", "[End_Desc]\n")
+--s = string.gsub (s, "Your enhanced resolve fades.", "Spelldown Valor")
+--s = string.gsub (s, "You feel the sinews of your muscles toughen up with resolve.", "Spellup Valor")
+return s
+end -- function OnPluginPacketReceived
+</script>
+
+</muclient>

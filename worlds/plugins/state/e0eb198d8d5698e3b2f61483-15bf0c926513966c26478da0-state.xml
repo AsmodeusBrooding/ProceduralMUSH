@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- MuClient version 5.07-pre -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+
+<!-- Plugin state saved. Plugin: "ProcedureMUSH_Updater". World: "Procedural_Realms". -->
+
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.07-pre"
+   world_file_version="15"
+  >
+  <variable name="hpmVar">hpmVar = {
+  betaCache = {
+    },
+  cache = {
+    ["84164fd114202591729cb51b"] = {
+      sname = "CommCatcher",
+      pid = "84164fd114202591729cb51b",
+      url = "https://raw.githubusercontent.com/AsmodeusBrooding/ProceduralMUSH-Updater/main/Communication%20Catcher/ProceduralMUSH_Communication_Catcher.xml",
+      rawname = "ProceduralMUSH_CommCatcher",
+      versionL = 6.4,
+      versionW = "6.40",
+      lname = "C:\\Users\\rpgpl\\Desktop\\ProceduralMUSH\\worlds\\plugins\\ProceduralMUSH_Communication_Catcher.xml",
+      },
+    ef4a86dbc9cd4dd6f4c69385 = {
+      sname = "Health_Bars",
+      pid = "ef4a86dbc9cd4dd6f4c69385",
+      url = "https://raw.githubusercontent.com/AsmodeusBrooding/ProceduralMUSH-Updater/main/Health%20Monitor/ProceduralMUSH_Health_Monitor.xml",
+      rawname = "ProceduralMUSH_Health_Bars",
+      versionL = 2,
+      versionW = "2.0",
+      lname = "C:\\Users\\rpgpl\\Desktop\\ProceduralMUSH\\worlds\\plugins\\ProceduralMUSH_Health_Monitor.xml",
+      },
+    ["9c0ed228bdb4a71c77e85ce2"] = {
+      sname = "ASCII_Map",
+      pid = "9c0ed228bdb4a71c77e85ce2",
+      url = "https://raw.githubusercontent.com/AsmodeusBrooding/ProceduralMUSH-Updater/main/ASCII%20Mapper/ProceduralMUSH_ASCII_Mapper.xml",
+      rawname = "ProceduralMUSH_ASCII_Map",
+      versionL = 1,
+      versionW = "1.0",
+      lname = "C:\\Users\\rpgpl\\Desktop\\ProceduralMUSH\\worlds\\plugins\\ProceduralMUSH_ASCII_Mapper.xml",
+      },
+    ["353de94ba6c42060d839e256"] = {
+      sname = "Group_Window",
+      pid = "353de94ba6c42060d839e256",
+      url = "https://raw.githubusercontent.com/AsmodeusBrooding/ProceduralMUSH-Updater/main/Group%20Monitor/ProceduralMUSH_Group_Monitor.xml",
+      rawname = "ProceduralMUSH_Group_Window",
+      versionL = 6.7,
+      versionW = "6.70",
+      lname = "C:\\Users\\rpgpl\\Desktop\\ProceduralMUSH\\worlds\\plugins\\ProceduralMUSH_Group_Monitor.xml",
+      },
+    },
+  }</variable>
+  <variable name="hpmpastfirstinstall2">true</variable>
+</variables>
+</muclient>

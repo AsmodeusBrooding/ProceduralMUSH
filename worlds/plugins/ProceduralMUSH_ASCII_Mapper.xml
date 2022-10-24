@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+
+<muclient>
+<plugin
+   name="ProceduralMUSH_ASCII_Map"
+   author="Asmodeus"
+   id="9c0ed228bdb4a71c77e85ce2"
+   language="Lua"
+   purpose="Displays the Ascii Map"
+   date_written="2022-10-18"
+   requires="4.00"
+   version="1.0"
+   save_state="y"
+   >
+
+</plugin>
+<aliases>
+<alias
+	sequence="100"
+	match="set ascii font *"
+	enabled="y"
+	send_to="12"
+	ignore_case="y"><send>
+    body_font_size = tonumber(%1)
+    SetVariable("body_font_size", body_font_size)
+    font_id = "font"
+    WindowFont("testwindow2", font_id, body_font_name, body_font_size, false, false, false, false, 0) -- normal font
+    util.print("@RSetting the font size to %1")
+    MapTextWidth = math.max(WindowTextWidth("testwindow2", font_id, "1234567"))
+    if MapTextWidth ~= nil then
+        win_width = MapTextWidth 
+        SetVariable("win_width", win_width)
+        win_height = MapTextWidth 
+        SetVariable("win_height", win_height)
+    end
+    my_window = ThemedTextWindow(
+        "testwindow2",                    -- string, required, a unique identifier for this window
+        0, -- integer, required, where to put it if the player hasn't moved it
+        0,  -- integer, required, where to put it if the player hasn't moved it
+        win_width,         -- integer, required, how big to make it if the player hasn't moved it -- width
+        win_height,        -- integer, required, how big to make it if the player hasn't moved it  -- height
+        "@x009PR@x202OC@x208ED@x214UR@x220AL@x011 AS@x190CI@x154I M@x118AP@x082PE@x047R",                 -- string, optional (nil means no titlebar), text to put into the title
+        "center",       -- string, optional (default is "center"), "left", "center", or "right"
+        false,          -- boolean, optional (default is false), true adds a close button in the top left
+        false,            -- boolean, optional (default is false), make the window resizeable
+        false,       -- boolean, optional (default is false), add a scrollbar and mousewheel scrolling
+        false,       -- boolean, optional (default is false), make the text selectable
+        false,         -- boolean, optional (default is false), make the text copyable via right-click
+        false,        -- boolean, optional (default is false), turn detected URLs into clickable links
+        false,              -- boolean, optional (default is false), automatically wrap text lines that are too wide
+        "Fixedsys",       -- string, optional (default is Dina), override the title font name
+        12,       -- integer, optional (default is 10), override the title font size
+        body_font_name,        -- string, optional (default is Dina), override the body text font name
+        body_font_size,        -- integer, optional (default is 10), override the body text font size
+        7,        -- integer, optional (default is 1000), maximum number of text lines to keep
+        5,          -- integer, optional (default is 5 pixels), space between text and miniwindow frame
+        false,         -- boolean, optional (default is false), true will prevent the window from appearing until you call :show() on it
+        false    -- boolean, optional (default is false), if true, pixels the same color as Theme.PRIMARY_BODY will be transparent
+     )
+     SaveState()
+</send></alias>
+<alias
+	sequence="100"
+	match="ascii save"
+	enabled="y"
+	send_to="12"
+	ignore_case="y"><send>
+     SaveState()
+</send></alias>
+<alias
+	sequence="100"
+	match="ascii help"
+	enabled="y"
+	send_to="12"
+	ignore_case="y"><send>
+     util.print("")
+</send></alias>
+</aliases>
+<!--  Script  -->
+<script>
+
+require "themed_miniwindows"
+require "gmcphelper"
+require "tprint"
+require "utility"
+require "colors"
+require "serialize"
+dofile(GetPluginInfo(GetPluginID(), 20) .. "aardwolf_colors.lua")
+gmcp_char = {}
+win_width = GetVariable("win_width") or 200
+win_height = GetVariable("win_width") or 200
+body_font_name = GetVariable("body_font_name") or "Lucida Console"
+body_font_size = GetVariable("body_font_size") or 40
+font_id = "font"
+MapTextWidth = math.max(WindowTextWidth("testwindow2", font_id, "1234567"))
+my_window = ThemedTextWindow(
+   "testwindow2",                    -- string, required, a unique identifier for this window 
+   0, -- integer, required, where to put it if the player hasn't moved it
+   0,  -- integer, required, where to put it if the player hasn't moved it
+   win_width,         -- integer, required, how big to make it if the player hasn't moved it -- width
+   win_height,        -- integer, required, how big to make it if the player hasn't moved it  -- height
+   "@x009PR@x202OC@x208ED@x214UR@x220AL@x011 AS@x190CI@x154I M@x118AP@x082PE@x047R",                 -- string, optional (nil means no titlebar), text to put into the title
+   "center",       -- string, optional (default is "center"), "left", "center", or "right"
+   false,          -- boolean, optional (default is false), true adds a close button in the top left
+   false,            -- boolean, optional (default is false), make the window resizeable
+   false,       -- boolean, optional (default is false), add a scrollbar and mousewheel scrolling
+   false,       -- boolean, optional (default is false), make the text selectable
+   false,         -- boolean, optional (default is false), make the text copyable via right-click
+   false,        -- boolean, optional (default is false), turn detected URLs into clickable links
+   false,              -- boolean, optional (default is false), automatically wrap text lines that are too wide
+   "Fixedsys",       -- string, optional (default is Dina), override the title font name
+   12,       -- integer, optional (default is 10), override the title font size
+   body_font_name,        -- string, optional (default is Dina), override the body text font name
+   body_font_size,        -- integer, optional (default is 10), override the body text font size
+   7,        -- integer, optional (default is 1000), maximum number of text lines to keep
+   5,          -- integer, optional (default is 5 pixels), space between text and miniwindow frame
+   false,         -- boolean, optional (default is false), true will prevent the window from appearing until you call :show() on it
+   false    -- boolean, optional (default is false), if true, pixels the same color as Theme.PRIMARY_BODY will be transparent
+)
+
+
+function OnPluginBroadcast (msg, id, name, text)
+    if (currentState == -1) then
+        currentState = 0 -- sent request
+        Send_GMCP_Packet("request char")
+    end
+  
+    -- Look for GMCP handler.
+    if (id == '3e7dedbe37e44942dd46d264') then
+        if (text == "Char.State") then   
+            gmcp_char.state = gmcp("Char.State")
+            mapInfo = gmcp_char.state.update.map or nil
+            if mapInfo ~= nil then 
+                for k, v in ipairs(mapInfo) do
+                --  print(v)
+                    v = string.gsub(v, "{{", "@")
+                    MapText = v
+                    if MapText ~= nil then
+                        -- for i=1,10 do
+                        my_window:add_text(tostring(MapText), false)
+                        --  end
+                    end
+                end
+            end
+    end
+    end
+
+    if font_size ~= body_font_size then 
+        font_size = body_font_size
+        my_window:fit_size(
+            win_width,        -- integer, optional, how wide you want the text content area to be not including the window dressing
+            7,    -- integer, optional, how many lines you want the text content area to hold    
+            2000,            -- integer, optional, upper limit on window width if the content width plus the window dressing would be too wide
+            2000            -- integer, optional, upper limit on window height if the height of the lines plus the window dressing would be too wide
+        )
+    end
+    my_window:draw()
+end
+ 
+</script>
+
+</muclient>

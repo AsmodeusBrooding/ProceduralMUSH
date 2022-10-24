@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<!-- MuClient version 5.07-pre -->
+<!-- Written by Nick Gammon -->
+<!-- Home Page: http://www.mushclient.com/ -->
+
+<!-- Plugin state saved. Plugin: "ProceduralMUSH_Chat_Echo". World: "Procedural_Realms". -->
+
+<muclient>
+
+<!-- variables -->
+
+<variables
+   muclient_version="5.07-pre"
+   world_file_version="15"
+  >
+  <variable name="channels_table">channels_table = {}
+  channels_table.quote = {}
+    channels_table.quote.echo = true
+  channels_table.shout = {}
+    channels_table.shout.echo = true
+  channels_table.tells = {}
+    channels_table.tells.echo = true
+  channels_table.says = {}
+    channels_table.says.echo = true
+  channels_table.yell = {}
+    channels_table.yell.echo = true
+  channels_table.ooc = {}
+    channels_table.ooc.echo = true
+  channels_table.gossips = {}
+    channels_table.gossips.echo = true
+  channels_table.info = {}
+    channels_table.info.echo = true
+  channels_table.grouptell = {}
+    channels_table.grouptell.echo = true
+  channels_table.discord = {}
+    channels_table.discord.echo = true
+  channels_table.grats = {}
+    channels_table.grats.echo = true
+  channels_table.music = {}
+    channels_table.music.echo = true</variable>
+  <variable name="nonchannels_table">nonchannels_table = {}
+  nonchannels_table.info = {}
+    nonchannels_table.info.echo = true</variable>
+</variables>
+</muclient>
