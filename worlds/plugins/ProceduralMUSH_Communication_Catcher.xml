@@ -14,7 +14,7 @@
    save_state="y"
    date_written="2022-10-20 23:28:32"
    requires="5.06"
-   version="6.41"
+   version="6.44"
    >
   
 </plugin>
@@ -60,7 +60,7 @@
     regexp="n"
     ignore_case="y"><send>
 SetVariable("tells_tab", %1)
-util.print("{GTells have been set to tab %1.")
+util.print("@GTells have been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -69,7 +69,7 @@ util.print("{GTells have been set to tab %1.")
     regexp="n"
     ignore_case="y"><send>
 SetVariable("gossip_tab", %1)
-util.print("{GThe gossip channel has been set to tab %1.")
+util.print("@GThe gossip channel has been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -78,7 +78,7 @@ util.print("{GThe gossip channel has been set to tab %1.")
     regexp="n"
     ignore_case="y"><send>
 SetVariable("quote_tab", %1)
-util.print("{GThe Quote channel has been set to tab %1.")
+util.print("@GThe Quote channel has been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -87,7 +87,7 @@ util.print("{GThe Quote channel has been set to tab %1.")
     regexp="n"
     ignore_case="y"><send>
 SetVariable("grouptell_tab", %1)
-util.print("{GGrouptells have been set to tab %1.")
+util.print("@GGrouptells have been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -96,7 +96,7 @@ util.print("{GGrouptells have been set to tab %1.")
     regexp="n"
     ignore_case="y"><send>
 SetVariable("trade_tab", %1)
-util.print("{GThe trade channel has been set to tab %1.")
+util.print("@GThe trade channel has been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -105,7 +105,7 @@ util.print("{GThe trade channel has been set to tab %1.")
     regexp="n"
     ignore_case="y"><send>
 SetVariable("clan_tab", %1)
-util.print("{GThe Clan channel has been set to tab %1.")
+util.print("@GThe Clan channel has been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -115,7 +115,7 @@ util.print("{GThe Clan channel has been set to tab %1.")
     ignore_case="y"><send>
 SetVariable("newbies_tab", %1)
 SaveState()
-util.print("{GThe newbies channel has been set to tab %1.")
+util.print("@GThe newbies channel has been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -124,7 +124,7 @@ util.print("{GThe newbies channel has been set to tab %1.")
     regexp="n"
     ignore_case="y"><send>
 SetVariable("says_tab", %1)
-util.print("{GSays have been set to tab %1.")
+util.print("@GSays have been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -133,7 +133,7 @@ util.print("{GSays have been set to tab %1.")
     regexp="n"
     ignore_case="y"><send>
 SetVariable("info_tab", %1)
-util.print("{GThe Info channel has been set to tab %1.")
+util.print("@GThe Info channel has been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -142,7 +142,7 @@ util.print("{GThe Info channel has been set to tab %1.")
     regexp="n"
     ignore_case="y"><send>
 SetVariable("discord_tab", %1)
-util.print("{GThe Discord channel has been set to tab %1.")
+util.print("@GThe Discord channel has been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -151,7 +151,7 @@ util.print("{GThe Discord channel has been set to tab %1.")
     regexp="n"
     ignore_case="y"><send>
 SetVariable("shout_tab", %1)
-util.print("{GShouts have been set to tab %1.")
+util.print("@GShouts have been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -160,7 +160,7 @@ util.print("{GShouts have been set to tab %1.")
     regexp="n"
     ignore_case="y"><send>
 SetVariable("yell_tab", %1)
-util.print("{GYells have been set to tab %1.")
+util.print("@GYells have been set to tab %1.")
 </send></alias>
 <alias enabled="y"
     sequence="100"
@@ -169,7 +169,7 @@ util.print("{GYells have been set to tab %1.")
     regexp="n"
     ignore_case="y"><send>
 SetVariable("yell_tab", %1)
-util.print("{GYells have been set to tab %1.")
+util.print("@GYells have been set to tab %1.")
 </send></alias>
 <!--  Mute channels from main output  -->
 <alias enabled="y"
@@ -182,12 +182,12 @@ if GetTriggerOption ("send_tell", "omit_from_output") == 1 then
 SetTriggerOption ("send_tell", "omit_from_output", 0)
 SetTriggerOption ("get_tell", "omit_from_output", 0)
 SetVariable("tells_visible", "Yes")
-util.print("{GTells are now visible in the main output.")
+util.print("@GTells are now visible in the main output.")
 elseif GetTriggerOption ("send_tell", "omit_from_output") == 0 then
 SetTriggerOption ("send_tell", "omit_from_output", 1)
 SetTriggerOption ("get_tell", "omit_from_output", 1)
 SetVariable("tells_visible", "No")
-util.print("{GTells are now hidden from the main output.")
+util.print("@GTells are now hidden from the main output.")
 end
 
 </send></alias>
@@ -200,11 +200,11 @@ end
 if GetTriggerOption ("send_clan", "omit_from_output") == 1 then
 SetTriggerOption ("send_clan", "omit_from_output", 0)
 SetVariable("clan_visible", "Yes")
-util.print("{GClan tells are now visible in the main output.")
+util.print("@GClan tells are now visible in the main output.")
 elseif GetTriggerOption ("send_clan", "omit_from_output") == 0 then
 SetTriggerOption ("send_clan", "omit_from_output", 1)
 SetVariable("clan_visible", "No")
-util.print("{GClan tells are now hidden from the main output.")
+util.print("@GClan tells are now hidden from the main output.")
 end
 </send></alias>
 <alias enabled="y"
@@ -217,12 +217,12 @@ if GetTriggerOption ("send_newbies", "omit_from_output") == 1 then
 SetTriggerOption ("send_newbies", "omit_from_output", 0)
 SetTriggerOption ("get_newbies", "omit_from_output", 0)
 SetVariable("newbies_visible", "Yes")
-util.print("{GThe newbies channel is now visible in the main output.")
+util.print("@GThe newbies channel is now visible in the main output.")
 elseif GetTriggerOption ("send_newbies", "omit_from_output") == 0 then
 SetTriggerOption ("send_newbies", "omit_from_output", 1)
 SetTriggerOption ("get_newbies", "omit_from_output", 1)
 SetVariable("newbies_visible", "No")
-util.print("{GThe newbies channel is now hidden from the main output.")
+util.print("@GThe newbies channel is now hidden from the main output.")
 end
 
 </send></alias>
@@ -236,12 +236,12 @@ if GetTriggerOption ("send_quote", "omit_from_output") == 1 then
 SetTriggerOption ("send_quote", "omit_from_output", 0)
 SetTriggerOption ("get_quote", "omit_from_output", 0)
 SetVariable("quote_visible", "Yes")
-util.print("{GThe quote channel is now visible in the main output.")
+util.print("@GThe quote channel is now visible in the main output.")
 elseif GetTriggerOption ("send_quote", "omit_from_output") == 0 then
 SetTriggerOption ("send_quote", "omit_from_output", 1)
 SetTriggerOption ("get_quote", "omit_from_output", 1)
 SetVariable("quote_visible", "No")
-util.print("{GThe quote channel is now hidden from the main output.")
+util.print("@GThe quote channel is now hidden from the main output.")
 end
 
 </send></alias>
@@ -254,11 +254,11 @@ end
 if GetTriggerOption ("get_grouptell", "omit_from_output") == 1 then
 SetTriggerOption ("get_grouptell", "omit_from_output", 0)
 SetVariable("grouptell_visible", "Yes")
-util.print("{GGrouptells are now visible in the main output.")
+util.print("@GGrouptells are now visible in the main output.")
 elseif GetTriggerOption ("get_grouptell", "omit_from_output") == 0 then
 SetTriggerOption ("get_grouptell", "omit_from_output", 1)
 SetVariable("grouptell_visible", "No")
-util.print("{GGrouptells are now hidden from the main output.")
+util.print("@GGrouptells are now hidden from the main output.")
 end
 
 </send></alias>
@@ -272,12 +272,12 @@ if GetTriggerOption ("send_gossip", "omit_from_output") == 1 then
 SetTriggerOption ("send_gossip", "omit_from_output", 0)
 SetTriggerOption ("get_gossip", "omit_from_output", 0)
 SetVariable("gossip_visible", "Yes")
-util.print("{GThe gossip channel is now visible in the main output.")
+util.print("@GThe gossip channel is now visible in the main output.")
 elseif GetTriggerOption ("send_gossip", "omit_from_output") == 0 then
 SetTriggerOption ("send_gossip", "omit_from_output", 1)
 SetTriggerOption ("get_gossip", "omit_from_output", 1)
 SetVariable("gossip_visible", "No")
-util.print("{GThe gossip channel is now hidden from the main output.")
+util.print("@GThe gossip channel is now hidden from the main output.")
 end
 
 </send></alias>
@@ -290,11 +290,11 @@ end
 if GetTriggerOption ("get_trade", "omit_from_output") == 1 then
 SetTriggerOption ("get_trade", "omit_from_output", 0)
 SetVariable("trade_visible", "Yes")
-util.print("{GThe trade channel is now visible in the main output.")
+util.print("@GThe trade channel is now visible in the main output.")
 elseif GetTriggerOption ("get_trade", "omit_from_output") == 0 then
 SetTriggerOption ("get_trade", "omit_from_output", 1)
 SetVariable("trade_visible", "No")
-util.print("{GThe trade channel is now hidden from the main output.")
+util.print("@GThe trade channel is now hidden from the main output.")
 end
 
 </send></alias>
@@ -307,11 +307,11 @@ end
 if GetTriggerOption ("get_discord", "omit_from_output") == 1 then
 SetTriggerOption ("get_discord", "omit_from_output", 0)
 SetVariable("discord_visible", "Yes")
-util.print("{GThe Discord channel is now visible in the main output.")
+util.print("@GThe Discord channel is now visible in the main output.")
 elseif GetTriggerOption ("get_discord", "omit_from_output") == 0 then
 SetTriggerOption ("get_discord", "omit_from_output", 1)
 SetVariable("discord_visible", "No")
-util.print("{GThe Discord channel is now hidden from the main output.")
+util.print("@GThe Discord channel is now hidden from the main output.")
 end
 
 </send></alias>
@@ -326,13 +326,13 @@ SetTriggerOption ("send_says", "omit_from_output", 0)
 SetTriggerOption ("get_osays", "omit_from_output", 0)
 SetTriggerOption ("send_osays", "omit_from_output", 0)
 SetVariable("says_visible", "Yes")
-util.print("{GSays are now visible in the main output.")
+util.print("@GSays are now visible in the main output.")
 elseif GetTriggerOption ("send_says", "omit_from_output") == 0 then
 SetTriggerOption ("send_says", "omit_from_output", 1)
 SetTriggerOption ("get_osays", "omit_from_output", 1)
 SetTriggerOption ("send_osays", "omit_from_output", 1)
 SetVariable("says_visible", "No")
-util.print("{GSays are now hidden from the main output.")
+util.print("@GSays are now hidden from the main output.")
 end
 
 </send></alias>
@@ -348,14 +348,14 @@ SetTriggerOption ("info_kill", "omit_from_output", 0)
 SetTriggerOption ("info_login", "omit_from_output", 0)
 SetTriggerOption ("info_logout", "omit_from_output", 0)
 SetVariable("info_visible", "Yes")
-util.print("{GINFO is now visible in the main output.")
+util.print("@GINFO is now visible in the main output.")
 elseif GetTriggerOption ("info_level", "omit_from_output") == 0 then
 SetTriggerOption ("info_level", "omit_from_output", 1)
 SetTriggerOption ("info_kill", "omit_from_output", 1)
 SetTriggerOption ("info_login", "omit_from_output", 1)
 SetTriggerOption ("info_logout", "omit_from_output", 1)
 SetVariable("info_visible", "No")
-util.print("{GINFO is now hidden from the main output.")
+util.print("@GINFO is now hidden from the main output.")
 end
 
 </send></alias>
@@ -369,12 +369,12 @@ if GetTriggerOption ("send_shout", "omit_from_output") == 1 then
 SetTriggerOption ("send_shout", "omit_from_output", 0)
 SetTriggerOption ("get_shout", "omit_from_output", 0)
 SetVariable("shout_visible", "Yes")
-util.print("{GShouting is now visible in the main output.")
+util.print("@GShouting is now visible in the main output.")
 elseif GetTriggerOption ("send_shout", "omit_from_output") == 0 then
 SetTriggerOption ("send_shout", "omit_from_output", 1)
 SetTriggerOption ("get_shout", "omit_from_output", 1)
 SetVariable("shout_visible", "No")
-util.print("{GShouting is now hidden from the main output.")
+util.print("@GShouting is now hidden from the main output.")
 end
 </send></alias>
 <alias enabled="y"
@@ -387,12 +387,12 @@ if GetTriggerOption ("send_yell", "omit_from_output") == 1 then
 SetTriggerOption ("send_yell", "omit_from_output", 0)
 SetTriggerOption ("get_yell", "omit_from_output", 0)
 SetVariable("yell_visible", "Yes")
-util.print("{GYelling is now visible in the main output.")
+util.print("@GYelling is now visible in the main output.")
 elseif GetTriggerOption ("send_yell", "omit_from_output") == 0 then
 SetTriggerOption ("send_yell", "omit_from_output", 1)
 SetTriggerOption ("get_yell", "omit_from_output", 1)
 SetVariable("yell_visible", "No")
-util.print("{GYelling is now hidden from the main output.")
+util.print("@GYelling is now hidden from the main output.")
 end
 </send></alias>
 <alias enabled="y"
@@ -401,16 +401,6 @@ end
     send_to="14"
     regexp="n"
     ignore_case="y"><send>muteall()
-</send></alias>
-	<alias enabled="n"
-    name="ferryinfotoggle"
-    sequence="100"
-    match="ferryinfo"
-    send_to="14"
-    regexp="n"
-    ignore_case="y"><send>EnableTrigger ("ferryinfo1", (GetTriggerOption("ferryinfo1", "enabled")+1)%%2)
-	EnableTrigger ("ferryinfo2", (GetTriggerOption("ferryinfo2", "enabled")+1)%%2)
-ColourNote ("red", "black", "Ferry Info is enabled: " .. tostring(GetTriggerOption("ferryinfo1", "enabled") == 1))
 </send></alias>
 	<alias enabled="y"
     name="printshite"
@@ -427,27 +417,6 @@ print("Date Format: ", date_format)
 <!--  Triggers  -->
 
 <triggers>
-
-<trigger
-   enabled="y"
-   match="Asmodeus tells you, 'version'"
-   omit_from_output="y"
-   regexp="n"
-   send_to="14"
-   sequence="100"
-  >
-  </trigger>
-
-<trigger
-   enabled="y"
-   match="You reply to *, 'CleftMUSH *'"
-   omit_from_output="y"
-   omit_from_log="y"
-   regexp="n"
-   send_to="14"
-   sequence="100"
-  >
-  </trigger>
 
 <trigger
    enabled="n"
@@ -494,120 +463,24 @@ print("Date Format: ", date_format)
 </trigger>
 <trigger
     enabled="y"
-    name="send_quote"
-    match="You quote '*'"
-    script="quote"
-    regexp="n"
-    omit_from_output="n"
-    sequence="100">
-</trigger>
-<trigger
-    enabled="y"
-    name="get_quote"
-    match="* quotes '*'"
-    script="quote"
-    regexp="n"
-    omit_from_output="n"
-    sequence="100">
-</trigger>
-<trigger
-    enabled="y"
-    name="get_grouptell"
-    match="* <Group> '*'"
-   script="grouptell"
-    omit_from_output="n"
-    sequence="100"
-    ></trigger>
-<trigger
-    enabled="y"
-    name="info_logout"
-    match="(] * has escaped from the Cleft of Dimensions. [)"
-   script="info"
-    omit_from_output="n"
-    sequence="100"
-    ></trigger>
-<trigger
-    enabled="y"
     name="info_level"
     match="[Announcement]*."
     script="info"
     omit_from_output="y"
     sequence="100"
     ></trigger>
-<trigger
-    enabled="y"
-    match="^INFO: $"
-    regexp="y"
-    omit_from_output="y"
-    sequence="100"
-    ></trigger>
-<trigger
-    enabled="y"
-    name="info_kill"
-    match="INFO: =MORE=  * has been slaughtered by *.  =BLOOD="
-    script="info"
-    omit_from_output="n"
-    sequence="100"
-    ></trigger>
-<trigger
-    enabled="n"
-    match="INFO: "
-    omit_from_output="y"
-    sequence="100"
-    ></trigger>
-<trigger
-    enabled="y"
-    name="info_login"
-    match="(] * has fallen into the Cleft of Dimensions. [)"
-    script="info"
-    omit_from_output="n"
-    sequence="100"
-    ></trigger>
-<trigger
-    enabled="n"
-    match="A loud horn sounds off from the bay, signaling the arrival of a large vessel."
-    keep_evaluating="y"
-    omit_from_output="y"
-    sequence="100"
-    send_to="12"
-    >
-<send>ColourTell (
-"red", "black", "[",
-"white", "black", "Ferry Info",
-"red", "black", "]",
-"white", "black", " The ",
-"yellow","black", "S.S. ZELBESS",
-"white", "black", " will arrive in one minute!")</send></trigger>
-<trigger
-    enabled="n"
-	group="ferryinfo"
-	name="ferryinfo1"
-    match="A loud horn sounds off from the bay, signaling the arrival of a large vessel."
-    omit_from_output="y"
-    sequence="100"
-    send_to="14"
-    ><send>Execute("tracker {R[{WFerry Info{R]{W The {YS.S. ZELBESS {Wwill arrive in one minute!")</send></trigger>
-<trigger
-    enabled="n"
-	group="ferryinfo"
-	name="ferryinfo2"
-    match="A loud horn sounds off from the harbor, signaling the departure of a large vessel."
-    omit_from_output="y"
-    sequence="100"
-    send_to="14"
-    ><send>Execute("tracker {R[{WFerry Info{R]{W The {YS.S. ZELBESS {Whas departed!")</send></trigger>
-<trigger
+    <trigger
     enabled="y"
     name="get_newbies"
     regexp="y"
-    match="(?<player>\b\w+(?<!@discord)\b) newbies, '(?<message>.*)'"
+    match="(?<player>\b\w+(?<!@discord)\b) newbies, '(?<message>.*)'$"
    script="gossip"
     omit_from_output="y"
     sequence="100"
     send_to="14"
     ><send>
-    message = GetTriggerWildcard ("get_newbies", "message") or nil  -- get wildcard named 'rarity'
-    player = GetTriggerWildcard ("get_newbies", "player") or nil  -- get wildcard named 'rarity'
+    message = GetTriggerWildcard ("get_newbies", "message") or nil
+    player = GetTriggerWildcard ("get_newbies", "player") or nil
     util.print("@Y"..player.." @Mnewbies, '@w"..message.."@M'")
     local text = "@Y"..player.." @Mnewbies, '@w"..message.."@M'"
     SendToCommLog(text)</send></trigger>
@@ -615,14 +488,14 @@ print("Date Format: ", date_format)
     enabled="y"
     name="get_gossip"
     regexp="y"
-    match="(?<player>\b\w+(?<!@discord)\b) gossips, '(?<message>.*)'"
+    match="(?<player>\b\w+(?<!@discord)\b) gossips, '(?<message>.*)'$"
    script="gossip"
     omit_from_output="y"
     sequence="100"
     send_to="14"
     ><send>
-    message = GetTriggerWildcard ("get_gossip", "message") or nil  -- get wildcard named 'rarity'
-    player = GetTriggerWildcard ("get_gossip", "player") or nil  -- get wildcard named 'rarity'
+    message = GetTriggerWildcard ("get_gossip", "message") or nil
+    player = GetTriggerWildcard ("get_gossip", "player") or nil
     util.print("@Y"..player.."@Y gossips, '"..message.."'")
     local text = "@Y"..player.." @Ygossips, '"..message.."'"
     SendToCommLog(text)</send></trigger>
@@ -630,14 +503,14 @@ print("Date Format: ", date_format)
     enabled="y"
     name="get_gossip2"
     regexp="y"
-    match="(?<player>\w+)@discord gossips, '(?<message>.*)'"
+    match="(?<player>\w+)@discord gossips, '(?<message>.*)'$"
    script="gossip"
     omit_from_output="y"
     sequence="100"
     send_to="14"
     ><send>
-    message = GetTriggerWildcard ("get_gossip2", "message") or nil  -- get wildcard named 'rarity'
-    player = GetTriggerWildcard ("get_gossip2", "player") or nil  -- get wildcard named 'rarity'
+    message = GetTriggerWildcard ("get_gossip2", "message") or nil
+    player = GetTriggerWildcard ("get_gossip2", "player") or nil
     util.print("@x238[@x023D@x029I@x035S@x036C@x029OR@x023D@x238] @Y"..player.." gossips, '"..message.."'")
     local text = "@x238[@x023D@x029I@x035S@x036C@x029OR@x023D@x238] @Y"..player.." gossips, '"..message.."'"
     SendToCommLog(text)</send></trigger>
@@ -645,40 +518,43 @@ print("Date Format: ", date_format)
     enabled="y"
     name="get_newbies2"
     regexp="y"
-    match="(?<player>\w+)@discord newbies, '(?<message>.*)'"
+    match="(?<player>\w+)@discord newbies, '(?<message>.*)'$"
    script="gossip"
     omit_from_output="y"
     sequence="100"
     send_to="14"
     ><send>
-    message = GetTriggerWildcard ("get_newbies2", "message") or nil  -- get wildcard named 'rarity'
-    player = GetTriggerWildcard ("get_newbies2", "player") or nil  -- get wildcard named 'rarity'
+    message = GetTriggerWildcard ("get_newbies2", "message") or nil
+    player = GetTriggerWildcard ("get_newbies2", "player") or nil
     util.print("@x238[@x023D@x029I@x035S@x036C@x029OR@x023D@x238] @Y"..player.." @Mnewbies, '@w"..message.."@M'")
     local text = "@x238[@x023D@x029I@x035S@x036C@x029OR@x023D@x238] @Y"..player.." @Mnewbies, '@w"..message.."@M'"
     SendToCommLog(text)</send></trigger>   
 <trigger
     enabled="y"
     name="send_gossip"
-    match="*ou gossip, '*'"
+    match="^You gossip, '(?<message>.*)'$"
     script="gossip"
     omit_from_output="y"
+    regexp="y"
     sequence="100"
     send_to="14"
-    ><send>util.print("@YYou gossip, "..tostring("%2").."")
-    local text = "@YYou gossip, '"..tostring("%2").."'"
+    ><send>
+    message = GetTriggerWildcard ("send_gossip", "message") or nil
+    util.print("@YYou gossip, '"..message.."'")
+    local text = "@YYou gossip, '"..message.."'"
     SendToCommLog(text)</send></trigger>
     <trigger
     enabled="y"
     name="get_trade"
     regexp="y"
-    match="(?<player>\b\w+(?<!@discord)\b) trades, '(?<message>.*)'"
+    match="(?<player>\b\w+(?<!@discord)\b) trades, '(?<message>.*)'$"
    script="gossip"
     omit_from_output="y"
     sequence="100"
     send_to="14"
     ><send>
-    message = GetTriggerWildcard ("get_trade", "message") or nil  -- get wildcard named 'rarity'
-    player = GetTriggerWildcard ("get_trade", "player") or nil  -- get wildcard named 'rarity'
+    message = GetTriggerWildcard ("get_trade", "message") or nil
+    player = GetTriggerWildcard ("get_trade", "player") or nil
     util.print("@Y"..player.." @x202trades, '"..message.."@x202'")
     local text = "@Y"..player.." @x202trades, '"..message.."@x202'"
     SendToCommLog(text)</send></trigger>
@@ -686,14 +562,14 @@ print("Date Format: ", date_format)
     enabled="y"
     name="get_trade2"
     regexp="y"
-    match="(?<player>\w+)@discord trades, '(?<message>.*)'"
+    match="(?<player>\w+)@discord trades, '(?<message>.*)'$"
    script="gossip"
     omit_from_output="y"
     sequence="100"
     send_to="14"
     ><send>
-    message = GetTriggerWildcard ("get_trade2", "message") or nil  -- get wildcard named 'rarity'
-    player = GetTriggerWildcard ("get_trade2", "player") or nil  -- get wildcard named 'rarity'
+    message = GetTriggerWildcard ("get_trade2", "message") or nil
+    player = GetTriggerWildcard ("get_trade2", "player") or nil
     util.print("@x238[@x023D@x029I@x035S@x036C@x029OR@x023D@x238] @Y"..player.." @x202trades, '@w"..message.."@x202'")
     local text = "@x238[@x023D@x029I@x035S@x036C@x029OR@x023D@x238] @Y"..player.." @x202trades, '@w"..message.."@x202'"
     SendToCommLog(text)
@@ -818,7 +694,7 @@ print("Date Format: ", date_format)
       end
       
       stng = string.gsub("%2", "\s", "~")
-      --c = {"{R","{Y", "{G", "{C", "{B", "{M","{m"}
+      --c = {"@R","@Y", "@G", "{C", "{B", "{M","{m"}
       c = {"@x202", "@x208", "@x214","@x220","@x228"}
       strLen = stng:len()
       increment = 1
@@ -844,7 +720,7 @@ print("Date Format: ", date_format)
 <![CDATA[
 
 require "utility"
-version = "6.41"
+version = GetPluginInfo(GetPluginID(), 19)
 ----------------------------------------------------------------------------------------------------------
 --- VARIABLES GO HERE 
 ----------------------------------------------------------------------------------------------------------
@@ -917,7 +793,7 @@ SetVariable("newbies_visible", "Yes")
 SetVariable("tells_visible", "Yes")
 SetVariable("clan_visible", "Yes")
 SetVariable("all_visible", "Yes")
-util.print("{GAll channels are now visible in the main output.")
+util.print("@GAll channels are now visible in the main output.")
 end
 
 function mute()
@@ -955,7 +831,7 @@ SetVariable("tells_visible", "No")
 SetVariable("quote_visible", "No")
 SetVariable("clan_visible", "No")
 SetVariable("all_visible", "No")
-util.print("{GAll channels are now hidden from the main output.")
+util.print("@GAll channels are now hidden from the main output.")
 end
 
 function muteall()
@@ -996,7 +872,7 @@ SetVariable("newbies_visible", "Yes")
 SetVariable("tells_visible", "Yes")
 SetVariable("clan_visible", "Yes")
 SetVariable("all_visible", "Yes")
-util.print("{GAll channels are now visible in the main output.")
+util.print("@GAll channels are now visible in the main output.")
 elseif GetTriggerOption ("send_yell", "omit_from_output") == 0 then
 SetTriggerOption ("send_yell", "omit_from_output", 1)
 SetTriggerOption ("send_tell", "omit_from_output", 1)
@@ -1034,7 +910,7 @@ SetVariable("tells_visible", "No")
 SetVariable("quote_visible", "No")
 SetVariable("clan_visible", "No")
 SetVariable("all_visible", "No")
-util.print("{GAll channels are now hidden from the main output.")
+util.print("@GAll channels are now hidden from the main output.")
 end
 end
 
@@ -1127,53 +1003,50 @@ function yell (name, line, wildcards, styles)
 end -- yell tab
 
 function commcheck()
-      util.print("{W--------------------------------------------------------------------------------")
-      util.print("            {YC{yl{Ye{yf{Yt{RM{rU{RS{rH {x238Chat Window {YTab Information                            ")
-      util.print("{W--------------------------------------------------------------------------------")
-     -- util.print("{W The following is a list of the channels and which tab they're set to ")
+      util.print("@W--------------------------------------------------------------------------------")
+      util.print("            @x009Pr@x202oc@x208ed@x214ur@x220al@x011 Re@x190al@x154ms @x118Ch@x082at @x047Wi@x048nd@x050o@x045w @YTab Information                            ")
+      util.print("@W--------------------------------------------------------------------------------")
+     -- util.print("@W The following is a list of the channels and which tab they're set to ")
      --util.print("")
-      util.print("{Y            Channel List      {R-->          {Y Tab Number   {YVisible in Main Output")
-      util.print("{W--------------------------------------------------------------------------------")
+      util.print("@Y            Channel List      @R-->          @Y Tab Number   @YVisible in Main Output")
+      util.print("@W--------------------------------------------------------------------------------")
       util.print("")
-      util.print("{Y            GroupTell         {R-->           {Y" .. (GetVariable("grouptell_tab") or 1) .."            " .. (GetVariable("grouptell_visible") or "Yes"))
-      util.print("{Y            Discord           {R-->           {Y" .. (GetVariable("discord_tab") or 1) .."            " .. (GetVariable("discord_visible") or "Yes"))
-      util.print("{Y            newbies             {R-->           {Y" .. (GetVariable("newbies_tab") or 1) .."            " .. (GetVariable("newbies_visible") or "Yes"))
-      util.print("{Y            trade             {R-->           {Y" .. (GetVariable("trade_tab") or 1) .."            " .. (GetVariable("trade_visible") or "Yes"))
-      util.print("{Y            Quote             {R-->           {Y" .. (GetVariable("quote_tab") or 1) .."            " .. (GetVariable("quote_visible") or "Yes"))
-      util.print("{Y            Shout             {R-->           {Y" .. (GetVariable("shout_tab") or 1) .."            " .. (GetVariable("shout_visible") or "Yes"))
-      util.print("{Y            Tells             {R-->           {Y" .. (GetVariable("tells_tab") or 1) .."            " .. (GetVariable("tells_visible") or "Yes"))
-      util.print("{Y            Info              {R-->           {Y" .. (GetVariable("info_tab") or 1) .."            " .. (GetVariable("info_visible") or "Yes"))
-      util.print("{Y            Says              {R-->           {Y" .. (GetVariable("says_tab") or 1) .."            " .. (GetVariable("says_visible") or "Yes"))
-      util.print("{Y            Clan              {R-->           {Y" .. (GetVariable("clan_tab") or 1) .."            " .. (GetVariable("clan_visible") or "Yes"))
-      util.print("{Y            Yell              {R-->           {Y" .. (GetVariable("yell_tab") or 1) .."            " .. (GetVariable("yell_visible") or "Yes"))
-      util.print("{Y            gossip               {R-->           {Y" .. (GetVariable("gossip_tab") or 1) .."            " .. (GetVariable("gossip_visible") or "Yes"))
+      util.print("@Y            GroupTell         @R-->           @Y" .. (GetVariable("grouptell_tab") or 1) .."            " .. (GetVariable("grouptell_visible") or "Yes"))
+      util.print("@Y            Discord           @R-->           @Y" .. (GetVariable("discord_tab") or 1) .."            " .. (GetVariable("discord_visible") or "Yes"))
+      util.print("@Y            newbies           @R-->           @Y" .. (GetVariable("newbies_tab") or 1) .."            " .. (GetVariable("newbies_visible") or "Yes"))
+      util.print("@Y            trade             @R-->           @Y" .. (GetVariable("trade_tab") or 1) .."            " .. (GetVariable("trade_visible") or "Yes"))
+      util.print("@Y            Quote             @R-->           @Y" .. (GetVariable("quote_tab") or 1) .."            " .. (GetVariable("quote_visible") or "Yes"))
+      util.print("@Y            Shout             @R-->           @Y" .. (GetVariable("shout_tab") or 1) .."            " .. (GetVariable("shout_visible") or "Yes"))
+      util.print("@Y            Tells             @R-->           @Y" .. (GetVariable("tells_tab") or 1) .."            " .. (GetVariable("tells_visible") or "Yes"))
+      util.print("@Y            Info              @R-->           @Y" .. (GetVariable("info_tab") or 1) .."            " .. (GetVariable("info_visible") or "Yes"))
+      util.print("@Y            Says              @R-->           @Y" .. (GetVariable("says_tab") or 1) .."            " .. (GetVariable("says_visible") or "Yes"))
+      util.print("@Y            Clan              @R-->           @Y" .. (GetVariable("clan_tab") or 1) .."            " .. (GetVariable("clan_visible") or "Yes"))
+      util.print("@Y            Yell              @R-->           @Y" .. (GetVariable("yell_tab") or 1) .."            " .. (GetVariable("yell_visible") or "Yes"))
+      util.print("@Y            gossip               @R-->           @Y" .. (GetVariable("gossip_tab") or 1) .."            " .. (GetVariable("gossip_visible") or "Yes"))
       util.print("")
-      util.print("{G Use set <channel> tab <tab number> to assign a channel to a different tab")
-      util.print("{G        {GI.E. {Rset tells tab 2{G to set the tells channel to tab 2  ")
+      util.print("@G Use set <channel> tab <tab number> to assign a channel to a different tab")
+      util.print("@G        @GI.E. @Rset tells tab 2@G to set the tells channel to tab 2  ")
       util.print("")
-      util.print("{W--------------------------------------------------------------------------------")
+      util.print("@W--------------------------------------------------------------------------------")
       util.print("")
 end
 
 function chathelp()
-      util.print("{W--------------------------------------------------------------------------------")
-      util.print("{WPlugin Name  : {YC{yl{Ye{yf{Yt{RM{rU{RS{rH {x238Chat Window")
-      util.print("{WAuthor       : {x238Asmodeus")
-      util.print("{WVersion      : {G" .. version)
-      util.print("{W--------------------------------------------------------------------------------")
+      util.print("@W--------------------------------------------------------------------------------")
+      util.print("@WPlugin Name  : @x009Pr@x202oc@x208ed@x214ur@x220al@x011 Re@x190al@x154ms @x118Ch@x082at @x047Wi@x048nd@x050o@x045w")
+      util.print("@WAuthor       : @x238Asmodeus")
+      util.print("@WVersion      : @G" .. version)
+      util.print("@W--------------------------------------------------------------------------------")
       util.print("")
-      util.print("                 {YC{yl{Ye{yf{Yt{RM{rU{RS{rH {x238Chat Window {YHelp                            ")
-      util.print("{W--------------------------------------------------------------------------------")
+      util.print("@Y chat help                 @R-->@W Displays the help pages for the chat window")
+      util.print("@Y mute <channel>            @R-->@W Mutes a specific channel from the main output")
+      util.print("@Y mute all                  @R-->@W Mutes all channels from the main output")
+      util.print("@Y chat check                @R-->@W Displays information about channels, which tabs")
+	  util.print("@Y                              @W the channels are assigned to, and if the channels")
+	  util.print("@Y                              @W are visible in the main output window")
+      util.print("@Y set <channel> <tabnumber> @R-->@W Assigns a channel to the specified tab number")
       util.print("")
-      util.print("{Y chat help                 {R-->{W Displays the help pages for the chat window")
-      util.print("{Y mute <channel>            {R-->{W Mutes a specific channel from the main output")
-      util.print("{Y mute all                  {R-->{W Mutes all channels from the main output")
-      util.print("{Y chat check                {R-->{W Displays information about channels, which tabs")
-	  util.print("{Y                              {W the channels are assigned to, and if the channels")
-	  util.print("{Y                              {W are visible in the main output window")
-      util.print("{Y set <channel> <tabnumber> {R-->{W Assigns a channel to the specified tab number")
-      util.print("")
-      util.print("{W--------------------------------------------------------------------------------")
+      util.print("@W--------------------------------------------------------------------------------")
       util.print("")
       util.print("")
 end
