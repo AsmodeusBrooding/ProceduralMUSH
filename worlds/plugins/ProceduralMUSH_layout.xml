@@ -15,7 +15,7 @@
    purpose="Layout ProceduralMUSHA Main Screen"
    date_written="2010-08-27 18:32:06"
    requires="4.56"
-   version="1.0"
+   version="1.1"
    save_state="y"
 >
 </plugin>
@@ -48,6 +48,33 @@
    ignore_case="y"
 ></alias>
 </aliases>
+   
+   <triggers>
+<trigger
+   name="Set_GMCP"
+   match="^Welcome to Procedural Realms!$"
+   enabled="y"
+   regexp="y"
+   sequence="100"
+   ignore_case="n"
+   send_to="12">
+   <send>
+   DoAfter(1, "config gmcp on")
+</send>
+</trigger>
+<trigger
+   name="gmcp_on"
+   match="^gmcp turned on.$"
+   enabled="y"
+   regexp="y"
+   sequence="100"
+   ignore_case="n"
+   send_to="12">
+   <send>
+   util.print("@x238[@RG@x202M@x208C@x214P@x220 IS @GON@x238] @x202Your client should display all windows properly. Have a muddish day!")
+</send>
+</trigger>
+</triggers>
 
 <!--  Script  -->
 
@@ -55,6 +82,7 @@
 <![CDATA[
 require "mw_theme_base"
 require "scrollbar"
+require "utility"
 
 default_top = 139
 default_bottom = 545
